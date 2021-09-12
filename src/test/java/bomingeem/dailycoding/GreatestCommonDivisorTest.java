@@ -9,12 +9,18 @@ public class GreatestCommonDivisorTest {
 
     @Test
     public void 최대공약수_테스트() {
+        //TODO:
+        // 1. stack TDD 구현(push(), pop(), peek(), empty()..)
+        // 2. Clean Code 7장
+        // 3. SOLID 공부해오기
+        // 4. GCD TDD 다시 해오기
+        //beforeAll, beforeEach 개념 확인해보기
         //given
         int a = 12;
         int b = 20;
+        GreatestCommonDivisor greatestCommonDivisor = new GreatestCommonDivisor();
 
         //when
-        GreatestCommonDivisor greatestCommonDivisor = new GreatestCommonDivisor();
         int gcd = greatestCommonDivisor.gcd(a, b);
 
         //then
