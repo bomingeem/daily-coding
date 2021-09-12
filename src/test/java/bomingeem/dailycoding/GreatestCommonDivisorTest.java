@@ -14,6 +14,7 @@ public class GreatestCommonDivisorTest {
         // 2. Clean Code 7장
         // 3. SOLID 공부해오기
         // 4. GCD TDD 다시 해오기
+
         //beforeAll, beforeEach 개념 확인해보기
         //given
         int a = 12;
