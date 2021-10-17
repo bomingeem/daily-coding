@@ -41,6 +41,20 @@ public class StackTest2 {
         assertThat(stack.size, is(1));
     }
 
+    @Test
+    public void stackPushTwoValue() {
+        //given
+        int x = 10;
+        int y = 20;
+
+        //when
+        stack.push(x);
+        stack.push(y);
+
+        //then
+        assertThat(stack.size, is(2));
+    }
+
     public static class Stack<Integer> {
         private Integer data;
         private Stack next;
