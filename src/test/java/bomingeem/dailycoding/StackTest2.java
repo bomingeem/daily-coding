@@ -3,9 +3,8 @@ package bomingeem.dailycoding;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.EmptyStackException;
-
+import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class StackTest2 {
@@ -30,6 +29,18 @@ public class StackTest2 {
         Assertions.assertThat(stack.size).isEqualTo(0);
     }
 
+    @Test
+    public void stackPushOneValue() {
+        //given
+        int x = 10;
+
+        //when
+        stack.push(x);
+
+        //then
+        assertThat(stack.size, is(1));
+    }
+
     public static class Stack<Integer> {
         private Integer data;
         private Stack next;
@@ -48,6 +59,9 @@ public class StackTest2 {
         public void push(Integer data) {
             if (data == null) throw new EmptyStackException();
             Stack stack = new Stack(data);
+            stack.next = top;
+            top = stack;
+            size++;
         }
 
         public int size() {
