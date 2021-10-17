@@ -55,6 +55,12 @@ public class StackTest2 {
         assertThat(stack.size, is(2));
     }
 
+    @Test
+    public void stackPopNull() {
+        stack.pop();
+        Assertions.assertThat(stack.size).isEqualTo(0);
+    }
+
     public static class Stack<Integer> {
         private Integer data;
         private Stack next;
@@ -76,6 +82,12 @@ public class StackTest2 {
             stack.next = top;
             top = stack;
             size++;
+        }
+
+        public Integer pop() {
+            if (top == null) throw new EmptyStackException();
+            Integer data = (Integer) top.data;
+            return data;
         }
 
         public int size() {
