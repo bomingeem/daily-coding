@@ -9,7 +9,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class StackTest2 {
     //함수에 대해서 더 세세하게 표기 할 필요가 있다
-    //사이즈 체크보다 이 값들이 잘 들어갔는지 확인 -> 반환하지 않고 스택에 대한 모든 값을 합해서 보여주면 될듯
     //peek은 굳이 안해도 될 것 같다
 
     private Stack stack;
@@ -44,15 +43,15 @@ public class StackTest2 {
     @Test
     public void stackPushTwoValue() {
         //given
-        int x = 10;
-        int y = 20;
+        int x = 5500;
+        int y = 12500;
 
         //when
         stack.push(x);
         stack.push(y);
 
         //then
-        assertThat(stack.sum(), is(30));
+        assertThat(stack.sum(), is(18000));
     }
 
     @Test
@@ -86,6 +85,19 @@ public class StackTest2 {
 
         //then
         assertThat(stack.pop(), is(10));
+    }
+
+    @Test
+    public void stackIsEmpty() {
+        //given
+        int x = 10;
+
+        //when
+        stack.push(x);
+        stack.pop();
+
+        //then
+        assertThat(stack.isEmpty(), is(true));
     }
 
     public static class Stack<E> {
@@ -126,6 +138,10 @@ public class StackTest2 {
                 sum += (int) pop();
             }
             return sum;
+        }
+
+        public boolean isEmpty() {
+            return top == null;
         }
 
         public int size() {
