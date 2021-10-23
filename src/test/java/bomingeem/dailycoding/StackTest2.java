@@ -8,14 +8,11 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class StackTest2 {
-    //함수에 대해서 더 세세하게 표기 할 필요가 있다
-    //peek은 굳이 안해도 될 것 같다
-
     private Stack stack;
-    //push: 스택의 가장 윗부분에 데이터를 추가
-    //pop: 스택의 가장 윗부분에 데이터를 제거
-    //isEmpty: 스택이 비어있을 경우 true를 반환
-    //size: 스택의 사이즈 반환
+
+    //TODO:
+    // - EmptyStackException으로 처리해야 할지 NullPointerException으로 처리해야 할지 크게 신경쓰지 않아도 되는 부분인가?
+    // - 현재 작성 한 기준으로 놓쳤던 부분이나 더 신경써야 할 부분이있을까?
 
     @BeforeEach
     public void initialize() {
