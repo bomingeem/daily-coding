@@ -73,6 +73,21 @@ public class StackTest2 {
         assertThat(stack.pop(), is(10));
     }
 
+    @Test
+    public void stackPopTwoValue() {
+        //given
+        int x = 10;
+        int y = 45;
+
+        //when
+        stack.push(x);
+        stack.push(y);
+        stack.pop();
+
+        //then
+        assertThat(stack.pop(), is(10));
+    }
+
     public static class Stack<Integer> {
         private Integer data;
         private Stack next;
@@ -99,6 +114,7 @@ public class StackTest2 {
         public Integer pop() {
             if (top == null) throw new NullPointerException();
             Integer data = (Integer) top.data;
+            top = top.next;
             size--;
             return data;
         }
