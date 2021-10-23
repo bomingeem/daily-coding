@@ -100,6 +100,20 @@ public class StackTest2 {
         assertThat(stack.isEmpty(), is(true));
     }
 
+    @Test
+    public void stackSizeCheck() {
+        //given
+        int x = 50;
+
+        //when
+        stack.push(x);
+        stack.push(x);
+        stack.push(x);
+
+        //then
+        assertThat(stack.size(), is(3));
+    }
+
     public static class Stack<E> {
         private E data;
         private Stack next;
