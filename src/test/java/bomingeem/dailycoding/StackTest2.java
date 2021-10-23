@@ -38,7 +38,7 @@ public class StackTest2 {
         stack.push(x);
 
         //then
-        assertThat(stack.size, is(1));
+        assertThat(stack.sum(), is(10));
     }
 
     @Test
@@ -52,7 +52,7 @@ public class StackTest2 {
         stack.push(y);
 
         //then
-        assertThat(stack.size, is(2));
+        assertThat(stack.sum(), is(30));
     }
 
     @Test
@@ -88,8 +88,8 @@ public class StackTest2 {
         assertThat(stack.pop(), is(10));
     }
 
-    public static class Stack<Integer> {
-        private Integer data;
+    public static class Stack<E> {
+        private E data;
         private Stack next;
         private Stack top;
         private int size;
@@ -98,12 +98,12 @@ public class StackTest2 {
             this.size = 0;
         }
 
-        public Stack(Integer data) {
+        public Stack(E data) {
             this.data = data;
             this.size = 0;
         }
 
-        public void push(Integer data) {
+        public void push(E data) {
             if (data == null) throw new EmptyStackException();
             Stack stack = new Stack(data);
             stack.next = top;
@@ -111,12 +111,21 @@ public class StackTest2 {
             size++;
         }
 
-        public Integer pop() {
+        public E pop() {
             if (top == null) throw new NullPointerException();
-            Integer data = (Integer) top.data;
+            E data = (E) top.data;
             top = top.next;
             size--;
             return data;
+        }
+
+        public int sum() {
+            int length = size;
+            int sum = 0;
+            for (int i=0; i<length; i++) {
+                sum += (int) pop();
+            }
+            return sum;
         }
 
         public int size() {
