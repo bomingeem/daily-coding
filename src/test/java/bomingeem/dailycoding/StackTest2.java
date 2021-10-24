@@ -11,8 +11,11 @@ public class StackTest2 {
     private Stack stack;
 
     //TODO:
-    // - EmptyStackException으로 처리해야 할지 NullPointerException으로 처리해야 할지 크게 신경쓰지 않아도 되는 부분인가?
     // - 현재 작성 한 기준으로 놓쳤던 부분이나 더 신경써야 할 부분이있을까?
+    //   1. 변수/함수명 신경쓰기: [example] stackPopOneValue → popSuccessfullyWhenOnlyOneValuePushedTest, data/information 사용 지양
+    //   2. 예외처리 확실히 해보기: assertThrows 활용
+    // - stack TDD 마지막으로 다시 짜보기: 너무 많은것이 구현되어 있음 → 테스트를 하지 않았다는 증거
+    // - clean code 10장 정리
 
     @BeforeEach
     public void initialize() {
