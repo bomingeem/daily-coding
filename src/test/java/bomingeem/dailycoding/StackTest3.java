@@ -21,13 +21,18 @@ public class StackTest3 {
 
     public static class Stack {
         private Integer data;
+
         public Stack() {};
+        public Stack(Integer data) {
+            this.data = data;
+        };
 
         public void push(Integer data) {
+            Stack stack = new Stack(data);
         }
 
         public boolean isEmpty() {
-            return true;
+            return data == null;
         }
     }
 }
