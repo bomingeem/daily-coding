@@ -27,29 +27,42 @@ public class StackTest3 {
     public void popSuccessfullyWhenOnlyOneValuePushedTest() {
         //when
         Object push = stack.push(1);
+
         //then
-        assertThat(push, is(1));
+        assertThat(stack.size(), is(1));
+    }
+
+    @Test
+    public void popSuccessfullyWhenOnlyTwoValuePushedTest() {
+        //when
+        Object pushedFirstValue = stack.push(1);
+        Object pushedSecondValue = stack.push(2);
+
+        //then
+        assertThat(stack.size(), is(2));
     }
 
     public static class Stack<E> {
         private Object[] array;
-        private Object data;
+        private int size;
 
         public Stack() {
             array = new Object[10];
-        };
-        public Stack(int data) {
-            this.data = data;
+            size = 0;
         };
 
         public Object push(Object data) {
             //TODO: NullPointerException 에러 시 어떻게 에러를 처리해야 올바른 방법일까?
-            System.out.println(data);
             if (data == null) {
                 throw new NullPointerException("null cannot be allowed");
             }
             array[0] = data;
+            size++;
             return data;
+        }
+
+        public int size() {
+            return size;
         }
 
     }
