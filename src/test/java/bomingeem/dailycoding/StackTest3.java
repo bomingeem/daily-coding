@@ -76,6 +76,15 @@ public class StackTest3 {
         assertThat(poppedFirstValue, is(10));
     }
 
+    @Test
+    public void checkStackIsEmptyTest() {
+        //when
+        boolean checkIsEmptyFlag = stack.isEmpty();
+
+        //then
+        assertThat(checkIsEmptyFlag, is(true));
+    }
+
     public static class Stack<E> {
         private Object[] array;
         private int size;
@@ -106,6 +115,10 @@ public class StackTest3 {
 
         public int size() {
             return size;
+        }
+
+        public boolean isEmpty() {
+            return false;
         }
 
     }
