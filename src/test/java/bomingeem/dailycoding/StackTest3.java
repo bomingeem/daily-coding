@@ -95,6 +95,18 @@ public class StackTest3 {
         assertThat(stack.isEmpty(), is(false));
     }
 
+    @Test
+    public void sumOfAllValuesStackIsCorrected() {
+        //when
+        stack.push(3500);
+        stack.push(2000);
+        stack.push(550);
+        stack.pop();
+
+        //then
+        assertThat(stack.sum(), is(5500));
+    }
+
     public static class Stack<E> {
         private Object[] array;
         private int size;
@@ -129,6 +141,16 @@ public class StackTest3 {
 
         public boolean isEmpty() {
             return size == 0;
+        }
+
+        public int sum() {
+            int sum = 0;
+            //TODO: casting을 여러가지 방법으로 함에도 불구하고 for문이 0번째 index만 실행된다. 확인 필요
+            for (int i=0; i<size; i++) {
+                sum += (int) pop();
+            }
+            System.out.println(sum);
+            return sum;
         }
     }
 }
