@@ -23,9 +23,19 @@ public class StackTest3 {
         });
     }
 
+    @Test
+    public void popSuccessfullyWhenOnlyOneValuePushedTest() {
+        //when
+        stack.push(1);
+
+        //then
+        assertThat(stack.size(), is(1));
+    }
+
     public static class Stack<Integer> {
         private Integer[] array;
         private Integer data;
+        private int size;
 
         public Stack() {};
         public Stack(Integer data) {
@@ -43,6 +53,10 @@ public class StackTest3 {
 
         public boolean isEmpty() {
             return data == null;
+        }
+
+        public int size() {
+            return size;
         }
     }
 }
