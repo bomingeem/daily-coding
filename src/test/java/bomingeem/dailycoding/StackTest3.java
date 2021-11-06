@@ -17,14 +17,17 @@ public class StackTest3 {
 
     @Test
     public void pushedNullValueTest() {
+        //then
         stack.push(null);
+
+        //then
         assertThrows(NullPointerException.class, () -> {
             System.out.println("null cannot be allowed");
         });
     }
 
     @Test
-    public void pushSuccessfullyWhenOnlyOneValuePushedTest() {
+    public void successfullyWhenOnlyOneValuePushedTest() {
         //when
         Object push = stack.push(1);
 
@@ -33,13 +36,44 @@ public class StackTest3 {
     }
 
     @Test
-    public void pushSuccessfullyWhenOnlyTwoValuePushedTest() {
+    public void successfullyWhenTwoValuePushedTest() {
         //when
         Object pushedFirstValue = stack.push(1);
         Object pushedSecondValue = stack.push(2);
 
         //then
         assertThat(stack.size(), is(2));
+    }
+
+    @Test
+    public void poppedNullValueTest() {
+        //when
+        Object pop = stack.pop();
+
+        //then
+        assertThat(pop, is(0));
+    }
+
+    @Test
+    public void popSuccessfullyWhenOnlyOneValuePushedTest() {
+        //when
+        stack.push(1);
+        Object pop = stack.pop();
+
+        //then
+        assertThat(pop, is(1));
+    }
+
+    @Test
+    public void popSuccessfullyWhenTwoValuePushedTest() {
+        //when
+        stack.push(5);
+        stack.push(10);
+        Object poppedFirstValue = stack.pop();
+        Object poppedSecondValue = stack.pop();
+
+        //then
+        assertThat(poppedFirstValue, is(10));
     }
 
     public static class Stack<E> {
@@ -56,9 +90,18 @@ public class StackTest3 {
             if (data == null) {
                 throw new NullPointerException("null cannot be allowed");
             }
-            array[0] = data;
+            array[size] = data;
             size++;
             return data;
+        }
+
+        public Object pop() {
+            if (array[0] == null) {
+                throw new NullPointerException("null cannot be allowed");
+            }
+            Object object = array[size - 1];
+            size--;
+            return object;
         }
 
         public int size() {
