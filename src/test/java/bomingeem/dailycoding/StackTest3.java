@@ -26,24 +26,27 @@ public class StackTest3 {
     @Test
     public void popSuccessfullyWhenOnlyOneValuePushedTest() {
         //when
-        stack.push(1);
+        Object push = stack.push(1);
 
         //then
-        assertThat(stack.size(), is(1));
+        assertThat(push, is(1));
     }
 
-    public static class Stack<Integer> {
-        private Integer[] array;
-        private Integer data;
+    public static class Stack<E> {
+        private Object[] array;
+        private Object data;
         private int size;
 
-        public Stack() {};
-        public Stack(Integer data) {
+        public Stack() {
+            array = new Object[10];
+        };
+        public Stack(int data) {
             this.data = data;
         };
 
-        public Integer push(Integer data) {
+        public Object push(Object data) {
             //TODO: NullPointerException 에러 시 어떻게 에러를 처리해야 올바른 방법일까?
+            System.out.println(data);
             if (data == null) {
                 throw new NullPointerException("null cannot be allowed");
             }
