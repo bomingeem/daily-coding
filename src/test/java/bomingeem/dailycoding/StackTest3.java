@@ -27,7 +27,6 @@ public class StackTest3 {
     public void popSuccessfullyWhenOnlyOneValuePushedTest() {
         //when
         Object push = stack.push(1);
-
         //then
         assertThat(push, is(1));
     }
@@ -35,7 +34,6 @@ public class StackTest3 {
     public static class Stack<E> {
         private Object[] array;
         private Object data;
-        private int size;
 
         public Stack() {
             array = new Object[10];
@@ -54,12 +52,5 @@ public class StackTest3 {
             return data;
         }
 
-        public boolean isEmpty() {
-            return data == null;
-        }
-
-        public int size() {
-            return size;
-        }
     }
 }
