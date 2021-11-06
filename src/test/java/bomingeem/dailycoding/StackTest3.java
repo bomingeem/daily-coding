@@ -24,7 +24,7 @@ public class StackTest3 {
     }
 
     @Test
-    public void popSuccessfullyWhenOnlyOneValuePushedTest() {
+    public void pushSuccessfullyWhenOnlyOneValuePushedTest() {
         //when
         Object push = stack.push(1);
 
@@ -33,7 +33,7 @@ public class StackTest3 {
     }
 
     @Test
-    public void popSuccessfullyWhenOnlyTwoValuePushedTest() {
+    public void pushSuccessfullyWhenOnlyTwoValuePushedTest() {
         //when
         Object pushedFirstValue = stack.push(1);
         Object pushedSecondValue = stack.push(2);
