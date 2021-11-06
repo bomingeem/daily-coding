@@ -19,7 +19,8 @@ public class StackTest3 {
         assertThat(stack.isEmpty(), is(false));
     }
 
-    public static class Stack {
+    public static class Stack<Integer> {
+        private Integer[] array;
         private Integer data;
 
         public Stack() {};
@@ -27,8 +28,9 @@ public class StackTest3 {
             this.data = data;
         };
 
-        public void push(Integer data) {
-            Stack stack = new Stack(data);
+        public Integer push(Integer data) {
+            array[0] = data;
+            return data;
         }
 
         public boolean isEmpty() {
