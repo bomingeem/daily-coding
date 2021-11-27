@@ -16,6 +16,8 @@ public class LeafYearTest {
     }
 
     //TODO: 실패나는 코드의 예시를 어떻게 먼저 접근했어야 했나?
+    // 단단히 잘못 풀었다는 느낌이 좀 든다 이렇게 쉽게 안풀렸을 것 같은데
+    // 더 디테일하게 테스트 했어야 하는 부분은 어디였는지?
 
     @Test
     public void checkMultipleOfFourTest() {
