@@ -15,8 +15,22 @@ public class LeafYearTest {
         leafYear = new LeafYear();
     }
 
+    //TODO: 실패나는 코드의 예시를 어떻게 먼저 접근했어야 했나?
+
     @Test
     public void checkMultipleOfFourTest() {
+        //given
+        int year = 2000;
+
+        //when
+        int result = leafYear.leafYear(year);
+
+        //then
+        assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    public void checkMultipleOfFourAndNotMultipleOfOneHundredTest() {
         //given
         int year = 2012;
 
@@ -29,7 +43,7 @@ public class LeafYearTest {
 
     public static class LeafYear {
         public static int leafYear(int year) {
-            if (year%4 == 0) {
+            if (year%4 == 0 && year%100 != 0) {
                 return 1;
             } else {
                 return 0;
