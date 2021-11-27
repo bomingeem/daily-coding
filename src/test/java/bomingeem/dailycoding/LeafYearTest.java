@@ -41,9 +41,21 @@ public class LeafYearTest {
         assertThat(result).isEqualTo(1);
     }
 
+    @Test
+    public void checkMultipleOfFourAndNotMultipleOfOneHundredOrFourHundredTest() {
+        //given
+        int year = 1999;
+
+        //when
+        int result = leafYear.leafYear(year);
+
+        //then
+        assertThat(result).isEqualTo(0);
+    }
+
     public static class LeafYear {
         public static int leafYear(int year) {
-            if (year%4 == 0 && year%100 != 0) {
+            if (year%4 == 0 && year%100 != 0 || year%400 == 0) {
                 return 1;
             } else {
                 return 0;
